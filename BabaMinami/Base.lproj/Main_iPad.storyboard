@@ -1,18 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4451" systemVersion="13A461" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3676"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="YIViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NLF-Of-5nk"/>
+                        <viewControllerLayoutGuide type="bottom" id="HGU-Yy-wih"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ばばみなみ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" preferredMaxLayoutWidth="768" translatesAutoresizingMaskIntoConstraints="NO" id="um3-e4-TQ8">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HiraKakuProN-W6" family="Hiragino Kaku Gothic ProN" pointSize="152"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdC-0G-3SC">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="72"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="callButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jn1-qT-hhg"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="um3-e4-TQ8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="3xz-xg-H5X"/>
+                            <constraint firstItem="tdC-0G-3SC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="AbE-dR-NE5"/>
+                            <constraint firstAttribute="trailing" secondItem="um3-e4-TQ8" secondAttribute="trailing" id="Ar5-9g-xaR"/>
+                            <constraint firstItem="um3-e4-TQ8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="L2l-v9-4Yj"/>
+                            <constraint firstAttribute="trailing" secondItem="tdC-0G-3SC" secondAttribute="trailing" id="Qry-0m-bt9"/>
+                            <constraint firstItem="HGU-Yy-wih" firstAttribute="top" secondItem="um3-e4-TQ8" secondAttribute="bottom" id="aym-Pw-His"/>
+                            <constraint firstItem="HGU-Yy-wih" firstAttribute="top" secondItem="tdC-0G-3SC" secondAttribute="bottom" id="p0B-E7-1CN"/>
+                            <constraint firstItem="tdC-0G-3SC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="xET-4k-VQe"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="callButton" destination="tdC-0G-3SC" id="HPj-IJ-B3R"/>
+                        <outlet property="resultLabel" destination="um3-e4-TQ8" id="yye-Mq-1dV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
