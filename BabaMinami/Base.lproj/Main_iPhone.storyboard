@@ -1,18 +1,70 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4451" systemVersion="13A461" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3676"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="YIViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pvg-hN-WtH"/>
+                        <viewControllerLayoutGuide type="bottom" id="WHj-XM-deg"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="よぶ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="r1E-U7-3aB">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="152"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="Zbx-rf-DM5">
+                                <rect key="frame" x="0.0" y="520" width="320" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="PL6-NV-X4a"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraKakuProN-W6" family="Hiragino Kaku Gothic ProN" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODR-0B-OjU">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="72"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="callButtonAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="znY-Er-YBv"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WHj-XM-deg" firstAttribute="top" secondItem="ODR-0B-OjU" secondAttribute="bottom" id="2gM-be-9l1"/>
+                            <constraint firstItem="ODR-0B-OjU" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="3c9-nF-pYW"/>
+                            <constraint firstItem="WHj-XM-deg" firstAttribute="top" secondItem="r1E-U7-3aB" secondAttribute="bottom" id="5Sd-9G-44D"/>
+                            <constraint firstAttribute="bottom" secondItem="Zbx-rf-DM5" secondAttribute="bottom" id="E03-6b-aec"/>
+                            <constraint firstItem="Zbx-rf-DM5" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="FHA-50-PMA"/>
+                            <constraint firstItem="ODR-0B-OjU" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="H7X-xQ-4lG"/>
+                            <constraint firstAttribute="trailing" secondItem="ODR-0B-OjU" secondAttribute="trailing" id="WKJ-By-sMD"/>
+                            <constraint firstAttribute="trailing" secondItem="Zbx-rf-DM5" secondAttribute="trailing" id="YKB-D2-Moz"/>
+                            <constraint firstItem="r1E-U7-3aB" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="qAI-ka-ZAw"/>
+                            <constraint firstAttribute="trailing" secondItem="r1E-U7-3aB" secondAttribute="trailing" id="qOK-s1-SLc"/>
+                            <constraint firstItem="r1E-U7-3aB" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="sVA-jn-5QC"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="callButton" destination="ODR-0B-OjU" id="qT8-36-Y9o"/>
+                        <outlet property="resultLabel" destination="r1E-U7-3aB" id="Bfw-HD-tfZ"/>
+                        <outlet property="scoreLabel" destination="Zbx-rf-DM5" id="8dv-Xg-bxz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

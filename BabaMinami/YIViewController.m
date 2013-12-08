@@ -110,10 +110,25 @@ typedef enum BaMiNability {
 	}
 	if ([resultString.string isEqualToString:@"みなばばみなみ"]) {
 		scoreLabel.text = [NSString stringWithFormat:@"みんなばばみなみです。"];
+		callButton.userInteractionEnabled = NO;
+		NSTimer *timer = [NSTimer timerWithTimeInterval:3.0 target:self selector:@selector(escapeFromFreeze) userInfo:self repeats:NO];
+		[[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 	} else if ([resultString.string isEqualToString:@"ばばみなみ"]) {
 		scoreLabel.text = [NSString stringWithFormat:@"完全にばばみなみです。"];
 		callButton.userInteractionEnabled = NO;
+		NSTimer *timer = [NSTimer timerWithTimeInterval:3.0 target:self selector:@selector(escapeFromFreeze) userInfo:self repeats:NO];
+		[[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+	} else if ([resultString.string isEqualToString:@"みなみばばみなみ"]) {
+		scoreLabel.text = [NSString stringWithFormat:@"熱帯から亜熱帯にかけて生息するばばみなみです。"];
+		callButton.userInteractionEnabled = NO;
+		NSTimer *timer = [NSTimer timerWithTimeInterval:3.0 target:self selector:@selector(escapeFromFreeze) userInfo:self repeats:NO];
+		[[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 	}
+}
+
+- (void)escapeFromFreeze
+{
+	callButton.userInteractionEnabled = YES;
 }
 
 - (BOOL)bananaCheckWithString:(NSString *)string
