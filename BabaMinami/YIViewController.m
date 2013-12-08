@@ -25,8 +25,8 @@ typedef enum BaMiNability {
 @implementation YIViewController {
 	NSMutableAttributedString *resultString;
 	BaMiNability rule;
-	int numberOfBananas;
-	int babaminamiLocation;
+	unsigned long numberOfBananas;
+	unsigned long babaminamiLocation;
 }
 
 @synthesize resultLabel;
@@ -74,7 +74,7 @@ typedef enum BaMiNability {
 				[self bananaCheckWithString:resultString.string];
 				if ([self babaminamiCheckWithString:resultString.string]) {
 					resultLabel.attributedText = resultString;
-					scoreLabel.text = [NSString stringWithFormat:@"ばばみなみは%d文字目から始まっています。ばななが%d本見つかりました。", babaminamiLocation, numberOfBananas];
+					scoreLabel.text = [NSString stringWithFormat:@"ばばみなみは%lu文字目から始まっています。ばななが%lu本見つかりました。", babaminamiLocation, numberOfBananas];
 					break;
 				}
 			}
@@ -100,7 +100,7 @@ typedef enum BaMiNability {
 				[self bananaCheckWithString:resultString.string];
 				if ([self babaminamiCheckWithString:resultString.string]) {
 					resultLabel.attributedText = resultString;
-					scoreLabel.text = [NSString stringWithFormat:@"ばばみなみは%d文字目から始まっています。ばななが%d本見つかりました。", babaminamiLocation, numberOfBananas];
+					scoreLabel.text = [NSString stringWithFormat:@"ばばみなみは%lu文字目から始まっています。ばななが%lu本見つかりました。", babaminamiLocation, numberOfBananas];
 					break;
 				}
 			}
