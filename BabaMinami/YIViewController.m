@@ -28,6 +28,7 @@ typedef enum BaMiNability {
 	unsigned long numberOfBananas;
 	unsigned long babaminamiLocation;
 	unsigned int caloriesPerBanana;
+	NSDate *date;
 }
 
 @synthesize resultLabel;
@@ -43,6 +44,31 @@ typedef enum BaMiNability {
 	rule = BaMiNabilityFLAT;
 	caloriesPerBanana = 74;
 	scoreLabel.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+	date = [NSDate date];
+	NSCalendar *calender = [NSCalendar currentCalendar];
+	NSDateComponents *dateComponents = [calender components:NSHourCalendarUnit fromDate:date];
+	long hour = dateComponents.hour;
+	
+	if (6 < hour && hour < 12) {
+		resultString = [[NSMutableAttributedString alloc] initWithString:@"朝からばばみなみを探す"];
+	} else if (12 < hour && hour < 17) {
+		resultString = [[NSMutableAttributedString alloc] initWithString:@"昼間からばばみなみを探す"];
+	} else if (17 < hour && hour < 21) {
+		resultString = [[NSMutableAttributedString alloc] initWithString:@"アフター5もばばみなみを探す"];
+	} else if (21 < hour && hour < 24) {
+		resultString = [[NSMutableAttributedString alloc] initWithString:@"夜分遅くにばばみなみを探す"];
+	} else {
+		resultString = [[NSMutableAttributedString alloc] initWithString:@"寝る間も惜しんでばばみなみを探す"];
+	}
+	NSRange babaminamiRange = [resultString.string rangeOfString:@"ばばみなみ"];
+	[resultString addAttribute:NSForegroundColorAttributeName
+						 value:[UIColor redColor]
+						 range:babaminamiRange];
+	resultLabel.attributedText = resultString;
 }
 
 - (void)didReceiveMemoryWarning
