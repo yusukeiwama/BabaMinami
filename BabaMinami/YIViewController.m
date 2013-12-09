@@ -27,6 +27,7 @@ typedef enum BaMiNability {
 	BaMiNability rule;
 	unsigned long numberOfBananas;
 	unsigned long babaminamiLocation;
+	unsigned int caloriesPerBanana;
 }
 
 @synthesize resultLabel;
@@ -40,6 +41,8 @@ typedef enum BaMiNability {
 	srand((unsigned)time(NULL));
 	resultString = [[NSMutableAttributedString alloc] initWithString:@""];
 	rule = BaMiNabilityFLAT;
+	caloriesPerBanana = 74;
+	scoreLabel.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,8 +76,7 @@ typedef enum BaMiNability {
 				}
 				[self bananaCheckWithString:resultString.string];
 				if ([self babaminamiCheckWithString:resultString.string]) {
-					resultLabel.attributedText = resultString;
-					scoreLabel.text = [NSString stringWithFormat:@"ばばみなみは%lu文字目から始まっています。ばななが%lu本見つかりました。", babaminamiLocation, numberOfBananas];
+					[self setResultString];
 					break;
 				}
 			}
@@ -99,8 +101,7 @@ typedef enum BaMiNability {
 				}
 				[self bananaCheckWithString:resultString.string];
 				if ([self babaminamiCheckWithString:resultString.string]) {
-					resultLabel.attributedText = resultString;
-					scoreLabel.text = [NSString stringWithFormat:@"ばばみなみは%lu文字目から始まっています。ばななが%lu本見つかりました。", babaminamiLocation, numberOfBananas];
+					[self setResultString];
 					break;
 				}
 			}
@@ -126,6 +127,20 @@ typedef enum BaMiNability {
 	}
 }
 
+- (void)setResultString
+{
+	resultLabel.attributedText = resultString;
+	if (numberOfBananas == 0) {
+		scoreLabel.text = [NSString stringWithFormat:@"ばばみなみは%lu文字目から始まっています。ばななは見つかりませんでした。何か食べさせてあげましょう。「なんでもいい」と言われてもファミレスに連れて行くと怒ります。", babaminamiLocation];
+	} else {
+		if (numberOfBananas * caloriesPerBanana > 2000) {
+			scoreLabel.text = [NSString stringWithFormat:@"ばばみなみは%lu文字目から始まっています。ばななが%lu本見つかりました(%lukcal)。食べ過ぎです。", babaminamiLocation, numberOfBananas, numberOfBananas * caloriesPerBanana];
+		} else {
+			scoreLabel.text = [NSString stringWithFormat:@"ばばみなみは%lu文字目から始まっています。ばななが%lu本見つかりました(%lukcal)。", babaminamiLocation, numberOfBananas, numberOfBananas * caloriesPerBanana];
+		}
+	}
+}
+
 - (void)escapeFromFreeze
 {
 	callButton.userInteractionEnabled = YES;
@@ -135,9 +150,11 @@ typedef enum BaMiNability {
 {
 	if (string.length >= 3
 		&& [[string substringFromIndex:string.length - 3] isEqualToString:@"ばなな"]) {
+		NSRange bananaRange = NSMakeRange(string.length - 3, 3);
+		// font color
 		[resultString addAttribute:NSForegroundColorAttributeName
-							 value:[UIColor yellowColor]
-							 range:NSMakeRange(string.length - 3, 3)];
+							 value:[UIColor colorWithHue:0.17 saturation:1.0 brightness:0.94 alpha:1.0]
+							 range:bananaRange];
 		numberOfBananas++;
 		return YES;
 	}
@@ -148,10 +165,13 @@ typedef enum BaMiNability {
 {
 	if (string.length >= 5
 		&& [[string substringFromIndex:string.length - 5] isEqualToString:@"ばばみなみ"]) {
+		NSRange babaminamiRange = NSMakeRange(string.length - 5, 5);
+		
 		[resultString addAttribute:NSForegroundColorAttributeName
 							 value:[UIColor redColor]
-							 range:NSMakeRange(string.length - 5, 5)];
+							 range:babaminamiRange];
 		babaminamiLocation = string.length - 5 + 1; // 1-origin
+				
 		return YES;
 	}
 	return NO;
